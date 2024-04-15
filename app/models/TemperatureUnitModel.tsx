@@ -1,13 +1,13 @@
-import { types } from 'mobx-state-tree'
+import { t } from 'mobx-state-tree'
 
-const TemperatureUnit = types
-  .model({
-    unit: types.enumeration('TemperatureUnit', ['Celsius', 'Fahrenheit']),
-  })
-  .actions((self) => ({
-    toggleUnit() {
-      self.unit = self.unit === 'Celsius' ? 'Fahrenheit' : 'Celsius'
-    },
-  }))
+const TemperatureUnitModel = t.model('TemperatureUnit', {
+  unit: t.enumeration('TemperatureUnit', ['Celsius', 'Fahrenheit']),
+})
 
-export default TemperatureUnit
+TemperatureUnitModel.actions((self) => ({
+  toggleUnit() {
+    self.unit = self.unit === 'Celsius' ? 'Fahrenheit' : 'Celsius'
+  },
+}))
+
+export default TemperatureUnitModel

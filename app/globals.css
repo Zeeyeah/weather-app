@@ -31,9 +31,7 @@ body {
   margin: 0 auto;
   overflow: hidden;
 }
-body.rain {
-  --primary: red;
-}
+
 @media only screen and (min-width: 768px) {
   body {
     height: calc(100svh - 108px);

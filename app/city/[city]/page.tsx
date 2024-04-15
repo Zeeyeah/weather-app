@@ -32,7 +32,7 @@ const page = ({ params }: { params: { city: string } }) => {
   console.log(forecast)
 
   return (
-    <main className=" h-screen min-h-[500px] flex flex-col gap-3 p-10 lg:pr-0 justify-items-start">
+    <main className=" lg:h-screen lg:min-h-[500px] flex flex-col gap-3 p-10 lg:pr-0 justify-items-start">
       <WeatherDispay weatherData={city} forecasteData={forecast} />
       <h1 className="text-2xl mt-3">6 Days Forecast</h1>
       <Forecast forecastData={forecast} />

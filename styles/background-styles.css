@@ -1,0 +1,62 @@
+.Rain {
+  --primary: #4299e1;
+  --color-2: #2463e2;
+  --color-3: #82542c;
+  --color-4: #5da0ff;
+}
+
+.Sunny {
+  --primary: #f6b93b;
+  --color-2: #f6803b;
+  --color-3: #8cb351;
+  --color-4: #f6b93b;
+  --color-5: #f63be0;
+}
+
+.Cloudy {
+  --primary: #9ddde4;
+  --color-2: #f8d898;
+  --color-3: #c0e999;
+  --color-4: #a99ae9;
+  --color-5: #f6b93b;
+}
+
+.Snow {
+  --primary: #fcfbfa;
+  --color-2: #f49e90;
+  --color-3: #ffffff;
+  --color-4: #e99c9c;
+  --color-5: #f6b93b;
+}
+
+.Bolt {
+  --primary: #866ce6;
+  --color-2: #3b60f6;
+  --color-3: #f63bda;
+  --color-4: #3b60f6;
+  --color-5: #f6b93b;
+}
+
+.Shower {
+  --primary: #7fd16f;
+  --color-2: #f66a3b;
+  --color-3: #3ba2f6;
+  --color-4: #e8d2a8;
+  --color-5: #f6b93b;
+}
+
+.Fog {
+  --primary: #e4d9c3;
+  --color-2: #3b80f6;
+  --color-3: #ffffff;
+  --color-4: #3b44f6;
+  --color-5: #f6b93b;
+}
+
+.SunnyCloudy {
+  --primary: #3b9ff6;
+  --color-2: #47b53f;
+  --color-3: #a53bf6;
+  --color-4: #f6b93b;
+  --color-5: #f6b93b;
+}

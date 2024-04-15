@@ -1,10 +1,10 @@
 'use client'
 import React, { useState } from 'react'
-import { observer, useLocalStore } from 'mobx-react-lite'
+import { observer } from 'mobx-react-lite'
 import { kelvinToCelsius, kelvinToFahrenheit } from './temperatureConverter'
-import TemperatureUnit from '../models/TemperatureUnitModel'
 import WeatherIcon from './WeatherIcons'
 import '@/styles/weather-display.css'
+import { getRootStore } from '../models/RootStore'
 
 interface ForecastProps {
   cod: string
@@ -51,9 +51,7 @@ interface ForecastProps {
 }
 const Forecast = observer(
   ({ forecastData }: { forecastData: ForecastProps }) => {
-    const store = useLocalStore(() => ({
-      temperatureUnit: TemperatureUnit.create({ unit: 'Celsius' }),
-    }))
+    const rootStore = getRootStore()
 
     const uniqueDates = [
       ...new Set(
@@ -76,10 +74,10 @@ const Forecast = observer(
             <div className="blury-card flex justify-between w-[100%] h-[100%] p-3">
               <div className=" ">
                 <h1 className="text-2xl">
-                  {store.temperatureUnit.unit === 'Celsius'
+                  {rootStore.temperatureUnit.unit === 'Celsius'
                     ? Math.floor(kelvinToCelsius(item.main.temp))
                     : Math.floor(kelvinToFahrenheit(item.main.temp))}{' '}
-                  {store.temperatureUnit.unit === 'Celsius' ? '°C' : '°F'}
+                  {rootStore.temperatureUnit.unit === 'Celsius' ? '°C' : '°F'}
                 </h1>
                 <p className="opacity-70">
                   {new Date(item.dt_txt).toLocaleString('en-us', {

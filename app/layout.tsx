@@ -5,6 +5,7 @@ import { use } from 'react'
 import Link from 'next/link'
 import AutocompleteSearch from './components/AutoCompleteSearch'
 import CityList from './components/CityList'
+import BackgroundColors from './components/BackgroundColors'
 
 const sora = Sora({ subsets: ['latin'] })
 
@@ -29,12 +30,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={sora.className + ' p-6 rain'}>
-        {/* <div className="absolute bottom-[50%] z-[3] right-[30%] bg-[var(--primary)] h-[20vh] w-[20vw] rounded-[50%]"></div> */}
-        <div className="absolute top-[50px] z-[3] left-[30%] bg-blue-500 h-[60vh] w-[30vw] rounded-[50%]"></div>
-        <div className="absolute top-[50px] z-[3] left-[10%] bg-sky-500 h-[30vh] w-[30vw] rounded-[50%]"></div>
-        <div className="absolute top-[50%] z-[3] left-[10%] bg-blue-900 h-[20vh] w-[30vw] rounded-[50%]"></div>
-        <div className="absolute bottom-[100px] z-[3] left-[50%] bg-sky-500 h-[20vh] w-[30vw] rounded-[50%]"></div>
+      <body className={sora.className + ' p-6'}>
+        <BackgroundColors />
         <div className="grid gap-4 grid-cols-1 lg:grid-cols-[1fr_270px] xl:grid-cols-[1fr_400px] min-h-[500px] bg-white/10 rounded-3xl relative z-[5] backdrop-blur-[200px]">
           {children}
           <div>

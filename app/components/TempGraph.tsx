@@ -4,6 +4,7 @@ import { kelvinToCelsius, kelvinToFahrenheit } from './temperatureConverter'
 import TemperatureUnit from '../models/TemperatureUnitModel'
 import Chart from 'chart.js/auto'
 import '@/styles/temp-chart.css'
+import '@/styles/weather-display.css'
 interface WeatherData {
   dt: number
   main: {
@@ -51,8 +52,8 @@ const HourlyTemperatureGraph: React.FC<HourlyTemperatureGraphProps> = observer(
                   {
                     label: 'Temperature (°C)',
                     data: temperatures,
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                    borderColor: 'white',
                     borderWidth: 1,
                   },
                 ],

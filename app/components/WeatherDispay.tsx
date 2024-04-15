@@ -1,12 +1,13 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import WeatherIcon from './WeatherIcons'
 import { observer, useLocalStore } from 'mobx-react-lite'
 import { kelvinToCelsius, kelvinToFahrenheit } from './temperatureConverter'
 import TemperatureUnit from '../models/TemperatureUnitModel'
 import HourlyTemperatureGraph from './TempGraph'
 import '@/styles/weather-display.css'
+import { getRootStore } from '../models/RootStore'
 interface WeatherDispayProps {
   coord: {
     lon: number
@@ -103,22 +104,53 @@ const WeatherDispay = observer(
     weatherData: WeatherDispayProps
     forecasteData: ForecastProps
   }) => {
-    const store = useLocalStore(() => ({
-      temperatureUnit: TemperatureUnit.create({ unit: 'Celsius' }),
-    }))
+    const rootStore = getRootStore()
     const handleToggleUnit = () => {
-      store.temperatureUnit.toggleUnit()
+      rootStore.toggleUnit()
     }
+    useEffect(() => {
+      switch (weatherData.weather[0].icon) {
+        case '01d':
+          rootStore.changeTheme('Sunny')
+          break
+        case '02d':
+          rootStore.changeTheme('SunnyCloudy')
+          break
+        case '03d':
+        case '03n':
+        case '04d':
+        case '04n':
+          rootStore.changeTheme('Cloudy')
+          break
+        case '09d':
+        case '09n':
+          rootStore.changeTheme('Shower')
+          break
+        case '10d':
+        case '10n':
+          rootStore.changeTheme('Rain')
+          break
+        case '11d':
+        case '11n':
+          rootStore.changeTheme('Bolt')
+          break
+        case '13d':
+        case '13n':
+          rootStore.changeTheme('Snow')
+          break
+        case '50d':
+        case '50n':
+          rootStore.changeTheme('Fog')
+          break
+        default:
+          rootStore.changeTheme('Sunny')
+          break
+      }
+    }, [])
 
-    const temperatureInCelsius = kelvinToCelsius(weatherData.main.temp)
-    const temperatureInFahrenheit = kelvinToFahrenheit(weatherData.main.temp)
     const today = new Date()
 
-    const temperature =
-      store.temperatureUnit.unit === 'Celsius'
-        ? temperatureInCelsius
-        : temperatureInFahrenheit
-    const unitLabel = store.temperatureUnit.unit === 'Celsius' ? '°C' : '°F'
+    const unitLabel = rootStore.temperatureUnit.unit === 'Celsius' ? '°C' : '°F'
 
     return (
       <div className="grid md:grid-cols-2 gap-3 h-[max-content]">
@@ -138,14 +170,14 @@ const WeatherDispay = observer(
           <div className="grid grid-cols-2 between gap-8 mb-5 md:min-w-[400px]">
             <div>
               <h1 className="text-[60px] h-[64px] mt-6 mb-2">
-                {store.temperatureUnit.unit === 'Celsius'
+                {rootStore.temperatureUnit.unit === 'Celsius'
                   ? Math.floor(kelvinToCelsius(weatherData.main.temp))
                   : Math.floor(kelvinToFahrenheit(weatherData.main.temp))}{' '}
                 <span
                   className={`text-3xl cursor-pointer ${
                     unitLabel === '°C' ? '' : 'opacity-50'
                   }`}
-                  onClick={handleToggleUnit}
+                  onClick={rootStore.toggleUnit}
                 >
                   °C
                 </span>
@@ -304,7 +336,7 @@ const WeatherDispay = observer(
                 </svg>
                 <div className="flex flex-col gap-1">
                   <h2 className="text-[18px] h-[20px] ">
-                    {store.temperatureUnit.unit === 'Celsius'
+                    {rootStore.temperatureUnit.unit === 'Celsius'
                       ? Math.floor(kelvinToCelsius(weatherData.main.temp_max))
                       : Math.floor(
                           kelvinToFahrenheit(weatherData.main.temp_max)
@@ -336,7 +368,7 @@ const WeatherDispay = observer(
 
                 <div className="flex flex-col gap-1">
                   <h2 className="text-[18px] h-[20px] ">
-                    {store.temperatureUnit.unit === 'Celsius'
+                    {rootStore.temperatureUnit.unit === 'Celsius'
                       ? Math.floor(kelvinToCelsius(weatherData.main.temp_min))
                       : Math.floor(
                           kelvinToFahrenheit(weatherData.main.temp_min)
@@ -367,7 +399,7 @@ const WeatherDispay = observer(
 
                 <div className="flex flex-col gap-1">
                   <h2 className="text-[18px] h-[20px] ">
-                    {store.temperatureUnit.unit === 'Celsius'
+                    {rootStore.temperatureUnit.unit === 'Celsius'
                       ? Math.floor(kelvinToCelsius(weatherData.main.feels_like))
                       : Math.floor(
                           kelvinToFahrenheit(weatherData.main.feels_like)
