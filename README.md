@@ -41,7 +41,7 @@ To run this project locally, follow these steps:
 
 ## Credits
 
-This project was created by [Your Name]. Special thanks to [OpenWeatherMap](https://openweathermap.org) for providing the weather data API.
+This project was created by Ziya Uddin. Special thanks to [OpenWeatherMap](https://openweathermap.org) and [OpenDataSoft]([https://openweathermap.org](https://public.opendatasoft.com/explore/?sort=modified)) for providing the weather data and city data API.
 
 ## License
 
