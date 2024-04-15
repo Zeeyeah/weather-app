@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Weather App README
+
+This project is a Weather App developed using Next.js, TypeScript, Tailwind CSS, and MobX State Tree. It utilizes the OpenWeatherMap API to display weather information, including current weather conditions and a 6-day forecast, for various cities. The aim of this project is to practice Next.js development while creating a functional and visually appealing weather application.
+
+## Features
+
+- **Infinite Scroll City List**: All cities are listed in an infinite scroll list, providing a seamless browsing experience.
+- **City Page Navigation**: Clicking on a city name navigates the user to the weather page for that specific city.
+- **New Tab Navigation**: Right-clicking on a city name and opening it in a new tab also directs the user to the weather page for the chosen city, but in a new tab.
+- **OpenWeatherMap API Integration**: Utilizes the OpenWeatherMap free API to fetch weather data, including current weather conditions (temperature, weather description, humidity, wind speed, and atmospheric pressure) and 6-day forecast (temperature highs and lows, weather description, etc.).
+- **Chart.js Integration**: Utilizes Chart.js to graphically display the temperature of the current date, enhancing the user's understanding of the weather forecast.
+- **Dynamic Backgrounds**: Implements dynamic backgrounds based on the current weather conditions, enhancing the visual appeal of the application.
+- **Weather Condition Representation**: Utilizes appropriate images or animations to represent different weather conditions (e.g., sunny, rainy, cloudy), providing a visually engaging user experience.
+- **Unit Measurement Switch**: Provides options to switch between different units of measurement, such as Celsius/Fahrenheit and metric/imperial, catering to users with different preferences.
+- **Deployment**: Deployed on Vercel for seamless accessibility and reliability.
+
+## Technologies Used
+
+- **Next.js**: Utilized as the frontend framework for its ease of use and efficient server-side rendering capabilities.
+- **TypeScript**: Implemented for static typing and enhanced code readability and maintainability.
+- **Tailwind CSS**: Utilized for styling the application, offering utility-first and responsive design principles.
+- **MobX State Tree (MST)**: Used for state management, offering a scalable and efficient solution for managing application state.
 
 ## Getting Started
 
-First, run the development server:
+To run this project locally, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Clone this repository to your local machine.
+2. Navigate to the project directory in your terminal.
+3. Install dependencies using `npm install` or `yarn install`.
+4. Set up environment variables for the OpenWeatherMap API.
+5. Run the development server using `npm run dev` or `yarn dev`.
+6. Access the application in your browser at `http://localhost:3000`.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Screenshots
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+![Desktop view Screenshot](/public/Screenshot-1.png)
+![Desktop view Screenshot](/public/Screenshot-2.png)
+![Tablet view Screenshot](/public/Screenshot-3.png)
+![Mobile view Screenshot](/public/Screenshot-4.png)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Credits
 
-## Learn More
+This project was created by [Your Name]. Special thanks to [OpenWeatherMap](https://openweathermap.org) for providing the weather data API.
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is licensed under the [MIT License](LICENSE). Feel free to use, modify, and distribute the code for personal or commercial projects.

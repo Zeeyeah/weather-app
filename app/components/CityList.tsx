@@ -69,7 +69,7 @@ const CityList = () => {
   return (
     <div
       ref={containerRef}
-      className="bg-[rgba(0,0,0,0.2)] h-[100svh] overflow-x-hidden overflow-y-scroll w-300 lg:relative fixed top-0 right-0 "
+      className="bg-[rgba(0,0,0,0.2)] h-[100svh] overflow-x-hidden overflow-y-scroll w-300 lg:relative "
     >
       <div className=" bg-black/10 sticky z-[2] top-0 w-[100%]">
         <div className="blury-card w-[100%] h-[100%] p-3 relative">

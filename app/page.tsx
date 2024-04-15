@@ -26,7 +26,7 @@ export default function Home() {
   const forecast = use(getForecast())
 
   return (
-    <main className=" lg:h-screen lg:min-h-[500px] flex flex-col gap-3 p-10 lg:pr-0 justify-items-start">
+    <main className=" lg:h-screen lg:min-h-[500px] flex flex-col gap-3 p-5 lg:p-10 lg:pr-0 justify-items-start">
       <WeatherDispay weatherData={defaultCity} forecasteData={forecast} />
       <h1 className="text-2xl mt-3">6 Days Forecast</h1>
       <Forecast forecastData={forecast} />
