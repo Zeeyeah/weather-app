@@ -1,0 +1,12 @@
+#temperatureChart {
+  width: 100%;
+  margin: 0 auto;
+  min-height: 200px;
+  color: white;
+}
+
+@media only screen and (max-width: 768px) {
+  #temperatureChart {
+    max-width: 100%;
+  }
+}

@@ -11,8 +11,8 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-start-rgb: 19, 19, 19;
+    --background-end-rgb: 28, 28, 28;
   }
 }
 
@@ -24,10 +24,31 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  background: rgb(var(--background-start-rgb));
+  height: 100%;
+  min-height: 100vh;
+  max-width: 2000px;
+  margin: 0 auto;
+  overflow: hidden;
 }
-
+body.rain {
+  --primary: red;
+}
+@media only screen and (min-width: 768px) {
+  body {
+    height: calc(100svh - 108px);
+  }
+}
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+@layer components {
+  .blury-card {
+    @apply bg-[rgba(0,0,0,0.6)] backdrop-blur-sm rounded-xl;
+  }
+  .blury-card-wrapper {
+    @apply p-[2px] bg-gradient-to-r from-[rgba(255,255,255,0.2)] to-[rgba(255,255,255,0.3)] backdrop-blur-lg flex justify-center items-center rounded-xl;
   }
 }
