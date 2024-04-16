@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react'
 import WeatherIcon from './WeatherIcons'
-import { observer, useLocalStore } from 'mobx-react-lite'
+import { observer } from 'mobx-react-lite'
 import { kelvinToCelsius, kelvinToFahrenheit } from './temperatureConverter'
 import TemperatureUnit from '../models/TemperatureUnitModel'
 import HourlyTemperatureGraph from './TempGraph'
@@ -169,7 +169,7 @@ const WeatherDispay = observer(
           </div>
           <div className="grid grid-cols-2 between gap-8 mb-5 md:min-w-[400px]">
             <div>
-              <h1 className="text-[60px] h-[64px] mt-6 mb-2">
+              <h1 className="text-[clamp(28px,_6vw,_64px)] mt-6 mb-2">
                 {rootStore.temperatureUnit.unit === 'Celsius'
                   ? Math.floor(kelvinToCelsius(weatherData.main.temp))
                   : Math.floor(kelvinToFahrenheit(weatherData.main.temp))}{' '}

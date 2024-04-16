@@ -7,7 +7,6 @@ import '@/styles/background-styles.css'
 
 const BackgroundColors = observer(() => {
   const rootStore = getRootStore()
-  console.log(rootStore.colorTheme.color)
   return (
     <div className={rootStore.colorTheme.color + ' transition-all'}>
       <div className="absolute top-[50px] z-[3] left-[30%] bg-[var(--primary)] h-[60vh] w-[30vw] rounded-[50%]"></div>

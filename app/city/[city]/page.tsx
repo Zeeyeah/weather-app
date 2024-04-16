@@ -29,10 +29,8 @@ const page = ({ params }: { params: { city: string } }) => {
   const city = use(getCity(params.city))
   const forecast = use(getForecast(params.city))
 
-  console.log(forecast)
-
   return (
-    <main className=" lg:h-screen lg:min-h-[500px] flex flex-col gap-3 p-5 lg:pr-0 justify-items-start">
+    <main className="h-full lg:h-screen lg:min-h-[500px] flex flex-col gap-3 p-5 lg:pr-0 justify-items-start">
       <WeatherDispay weatherData={city} forecasteData={forecast} />
       <h1 className="text-2xl mt-3">6 Days Forecast</h1>
       <Forecast forecastData={forecast} />
